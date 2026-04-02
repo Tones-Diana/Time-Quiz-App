@@ -52,18 +52,16 @@ class QuizApp(ctk.CTk):
         self.title("Quiz Master Pro")
         self.geometry("650x650")
 
-        # Logic Variables
         self.questions = []
         self.question_index = 0
         self.score = 0
         self.timer_count = 100 
         self.timer_id = None
 
-        # --- UI - Main Container ---
         self.main_frame = ctk.CTkFrame(self, corner_radius=20)
         self.main_frame.pack(pady=30, padx=30, fill="both", expand=True)
 
-        # --- START SCREEN ---
+       
         self.start_screen = ctk.CTkFrame(self.main_frame, fg_color="transparent")
         self.start_screen.pack(expand=True)
         self.label_welcome = ctk.CTkLabel(self.start_screen, text="Select a Category", font=("Roboto", 28, "bold"))
@@ -74,7 +72,7 @@ class QuizApp(ctk.CTk):
                                 command=lambda c=cat: self.start_quiz(c))
             btn.pack(pady=10)
 
-        # --- GAME SCREEN ---
+        
         self.game_screen = ctk.CTkFrame(self.main_frame, fg_color="transparent")
         
         self.question_info_label = ctk.CTkLabel(self.game_screen, text="", font=("Roboto", 14, "italic"))
@@ -83,12 +81,12 @@ class QuizApp(ctk.CTk):
         self.question_label = ctk.CTkLabel(self.game_screen, text="", font=("Roboto", 22, "bold"), wraplength=500)
         self.question_label.pack(pady=20)
 
-        # Progress Bar for Timer
+      
         self.progress_bar = ctk.CTkProgressBar(self.game_screen, width=400, height=12)
         self.progress_bar.set(1.0)
         self.progress_bar.pack(pady=10)
 
-        # Answer Grid (2x2)
+     
         self.ans_container = ctk.CTkFrame(self.game_screen, fg_color="transparent")
         self.ans_container.pack(pady=20)
         
